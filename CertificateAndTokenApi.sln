@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateAndTokenApi", "CertificateAndTokenApi.csproj", "{90937E57-3005-463F-B535-C51480EE6A6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90937E57-3005-463F-B535-C51480EE6A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90937E57-3005-463F-B535-C51480EE6A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90937E57-3005-463F-B535-C51480EE6A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90937E57-3005-463F-B535-C51480EE6A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4105179-29BE-4FD0-A2A2-6245F220041B}
+	EndGlobalSection
+EndGlobal
