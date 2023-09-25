@@ -1,6 +1,6 @@
-﻿namespace CertificateAndTokenApi
+﻿namespace CertificateAndTokenApi.DTO
 {
-    public class UserPassDTO
+    public class LoginDto
     {
         public string username { get; set; }
         public string password { get; set; }

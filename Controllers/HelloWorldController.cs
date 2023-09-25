@@ -10,7 +10,7 @@ namespace CertificateAndTokenApi.Controllers
     public class HelloWorldController : ControllerBase
     {
         [HttpGet]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
             return Ok("Hello world");
