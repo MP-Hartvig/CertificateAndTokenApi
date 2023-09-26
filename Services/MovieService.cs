@@ -5,35 +5,67 @@ namespace CertificateAndTokenApi.Services
 {
     public class MovieService : IMovieService
     {
+        static List<MovieDto> movies = new List<MovieDto>();
+        static int id = 6;
+
         public List<MovieDto> GetMovies()
         {
-            return new List<MovieDto> { 
-                new MovieDto { 
-                    Id = "1", 
-                    Title = "The Matrix", 
-                    ReleaseDate = "01/01/1999" 
-                },
-                new MovieDto {
+            if (movies.Count == 0)
+            {
+                movies.Add(new MovieDto
+                {
                     Id = "1",
+                    Title = "The Matrix",
+                    ReleaseDate = "01/01/1999"
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "2",
                     Title = "The Shawshank Redemption",
                     ReleaseDate = "02/05/1996"
-                },
-                new MovieDto {
-                    Id = "1",
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "3",
                     Title = "The Green Mile",
                     ReleaseDate = "08/06/1994"
-                },
-                new MovieDto {
-                    Id = "1",
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "4",
                     Title = "Die Hard",
-                    ReleaseDate = "29/11/1986"
-                },
-                new MovieDto {
-                    Id = "1",
+                    ReleaseDate = "11/29/1986"
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "5",
                     Title = "Iron Man",
-                    ReleaseDate = "15/03/2004"
-                },
-            };
+                    ReleaseDate = "03/15/2004"
+                });
+            }
+
+            return movies;
+        }
+
+        public List<MovieDto> CreateMovie(MovieDto movie)
+        {
+            movie.Id = id.ToString();
+            movies.Add(movie);
+            id++;
+            return movies;
+        }
+
+        public List<MovieDto> UpdateMovie(MovieDto movie)
+        {
+            int idx = movies.IndexOf(movies.Where(x => x.Id == movie.Id).SingleOrDefault(movie));
+            movies[idx] = movie;
+            return movies;
+        }
+
+        public List<MovieDto> DeleteMovie(string id)
+        {
+            movies.Remove(movies.Where(x => x.Id == id).SingleOrDefault() ?? new MovieDto());
+            return movies;
         }
     }
 }

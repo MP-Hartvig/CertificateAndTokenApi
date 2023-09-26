@@ -14,7 +14,7 @@ namespace CertificateAndTokenApi.Services
         {
             byte[] tokenKey = GetTokenKey();
             DateTime tokenExpiresTime = SetTokenExpiry();
-            List<Claim> claims = new List<Claim> { GetRoleClaim(login), GetUserIdClaim(login) };
+            List<Claim> claims = new List<Claim> { GetRoleClaim(login) };
             SecurityTokenDescriptor securityTokenDescriptor = GetDescriptor(claims, tokenExpiresTime, tokenKey);
             return AssignTokenProperties(securityTokenDescriptor, tokenExpiresTime);
         }
@@ -56,15 +56,11 @@ namespace CertificateAndTokenApi.Services
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
             };
         }
+
         private Claim GetRoleClaim(LoginDto login)
         {
             // TODO: Get role from db instead
             return new Claim(ClaimTypes.Role, "Admin");
-        }
-        private Claim GetUserIdClaim(LoginDto login)
-        {
-            // TODO: Get user id from db instead
-            return new Claim("UserId", "0");
         }
 
         private TokenDto AssignTokenProperties(SecurityTokenDescriptor securityTokenDescriptor, DateTime tokenExpiresTime)
