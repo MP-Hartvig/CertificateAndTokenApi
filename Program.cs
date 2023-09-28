@@ -21,6 +21,7 @@ namespace CertificateAndTokenApi
             // Add services to the container.
             builder.Services.AddAuthentication(opt =>
             {
+                opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
@@ -100,6 +101,8 @@ namespace CertificateAndTokenApi
             app.UseCors(corsPolicy);
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.MapControllers();
 

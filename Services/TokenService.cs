@@ -60,7 +60,7 @@ namespace CertificateAndTokenApi.Services
         private Claim GetRoleClaim(LoginDto login)
         {
             // TODO: Get role from db instead
-            return new Claim(ClaimTypes.Role, "Admin");
+            return login.username == "test@admin" ? new Claim(ClaimTypes.Role, "Admin") : new Claim(ClaimTypes.Role, "User");
         }
 
         private TokenDto AssignTokenProperties(SecurityTokenDescriptor securityTokenDescriptor, DateTime tokenExpiresTime)
